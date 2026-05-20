@@ -14,4 +14,4 @@ workflows:
         script: flutter packages pub get
       - name: Build iOS forcé sans signature
         script: |
-          flutter build ios --simulator --no-codesign --build-name=1.0.0 --build-number=1 --xcode-build-args="CODE_SIGNING_ALLOWED=NO" "CODE_SIGNING_REQUIRED=NO" "CODE_SIGN_IDENTITY="
+          flutter build ios --simulator --no-codesign --build-name=1.0.0 --build-number=1
