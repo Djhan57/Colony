@@ -12,6 +12,10 @@ workflows:
     scripts:
       - name: Appliquer les dépendances Flutter
         script: flutter packages pub get
-      - name: Build iOS sans signature (Test de compilation)
+      - name: Installer les CocoaPods (Dépendances iOS)
         script: |
-          flutter build ios --no-codesign
+          cd ios
+          pod install
+      - name: Build iOS forcé sans signature
+        script: |
+          flutter build ios --simulator --no-codesign --build-name=1.0.0 --build-number=1 --xcode-build-args="CODE_SIGNING_ALLOWED=NO" "CODE_SIGNING_REQUIRED=NO" "CODE_SIGN_IDENTITY="
