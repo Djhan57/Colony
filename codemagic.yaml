@@ -1,0 +1,19 @@
+workflows:
+  ios-build:
+    name: Colony iOS Build
+    instance_type: mac_mini_m1
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+    triggering:
+      events:
+        - push
+      branches:
+        - main
+    scripts:
+      - name: Appliquer les dépendances Flutter
+        script: flutter packages pub get
+      - name: Build iOS sans signature (Test de compilation)
+        script: |
+          flutter build ios --no-codesign
