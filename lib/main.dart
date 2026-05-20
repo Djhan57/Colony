@@ -272,7 +272,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             
                             if (_isLoading)
                               const Positioned.fill(
-                                child: Container(
+                                child: ColoredBox(
                                   color: Colors.black54,
                                   child: Center(
                                     child: CircularProgressIndicator(color: Colors.teal),
